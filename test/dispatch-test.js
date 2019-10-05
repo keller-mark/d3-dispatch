@@ -255,66 +255,43 @@ tape("dispatch(type).on(type, f) coerces type to a string", function(test) {
   test.end();
 });
 
-tape("dispatch(\"foo\", \"bar\").on(\"foo bar\", f) adds a callback for both types", function(test) {
+tape("dispatch(\"foo bar\").on(\"foo bar\", f) adds a callback for one type", function(test) {
   var foos = 0,
       foo = function() { ++foos; },
-      d = dispatch.dispatch("foo", "bar").on("foo bar", foo);
-  test.equal(d.on("foo"), foo);
-  test.equal(d.on("bar"), foo);
-  d.call("foo");
+      d = dispatch.dispatch("foo bar").on("foo bar", foo);
+  test.equal(d.on("foo bar"), foo);
+  d.call("foo bar");
   test.equal(foos, 1);
-  d.call("bar");
-  test.equal(foos, 2);
   test.end();
 });
 
-tape("dispatch(\"foo\").on(\"foo.one foo.two\", f) adds a callback for both typenames", function(test) {
-  var foos = 0,
-      foo = function() { ++foos; },
-      d = dispatch.dispatch("foo").on("foo.one foo.two", foo);
-  test.equal(d.on("foo.one"), foo);
-  test.equal(d.on("foo.two"), foo);
-  d.call("foo");
-  test.equal(foos, 2);
-  test.end();
-});
-
-tape("dispatch(\"foo\", \"bar\").on(\"foo bar\") returns the callback for either type", function(test) {
+tape("dispatch(\"foo bar\").on(\"foo bar\") returns the callback for the type", function(test) {
   var foo = function() {},
-      d = dispatch.dispatch("foo", "bar");
-  d.on("foo", foo);
+      d = dispatch.dispatch("foo bar");
+  d.on("foo bar", foo);
   test.equal(d.on("foo bar"), foo);
-  test.equal(d.on("bar foo"), foo);
-  d.on("foo", null).on("bar", foo);
-  test.equal(d.on("foo bar"), foo);
-  test.equal(d.on("bar foo"), foo);
   test.end();
 });
 
-tape("dispatch(\"foo\").on(\"foo.one foo.two\") returns the callback for either typename", function(test) {
+tape("dispatch(\"foo bar\").on(\"foo bar.one\") returns the callback for the typename", function(test) {
   var foo = function() {},
-      d = dispatch.dispatch("foo");
-  d.on("foo.one", foo);
-  test.equal(d.on("foo.one foo.two"), foo);
-  test.equal(d.on("foo.two foo.one"), foo);
-  test.equal(d.on("foo foo.one"), foo);
-  test.equal(d.on("foo.one foo"), foo);
-  d.on("foo.one", null).on("foo.two", foo);
-  test.equal(d.on("foo.one foo.two"), foo);
-  test.equal(d.on("foo.two foo.one"), foo);
-  test.equal(d.on("foo foo.two"), foo);
-  test.equal(d.on("foo.two foo"), foo);
+      d = dispatch.dispatch("foo bar");
+  d.on("foo bar.one", foo);
+  d.on("foo bar.two", foo);
+  test.equal(d.on("foo bar.one"), foo);
+  test.equal(d.on("foo bar.two"), foo);
   test.end();
 });
 
-tape("dispatch(\"foo\").on(\".one .two\", null) removes the callback for either typename", function(test) {
+tape("dispatch(\"foo bar\").on(\"foo bar.one\", null) removes the callback for the typename", function(test) {
   var foo = function() {},
-      d = dispatch.dispatch("foo");
-  d.on("foo.one", foo);
-  d.on("foo.two", foo);
-  d.on("foo.one foo.two", null);
-  test.equal(d.on("foo.one"), undefined);
-  test.equal(d.on("foo.two"), undefined);
+      d = dispatch.dispatch("foo bar");
+  d.on("foo bar.one", foo);
+  d.on("foo bar.two", foo);
+  d.on("foo bar.one", null);
+  d.on("foo bar.two", null);
+  test.equal(d.on("foo bar.one"), undefined);
+  test.equal(d.on("foo bar.two"), undefined);
   test.end();
 });
 
