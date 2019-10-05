@@ -55,11 +55,11 @@ Creates a new dispatch for the specified event *types*. Each *type* is a string,
 
 Adds, removes or gets the *callback* for the specified *typenames*. If a *callback* function is specified, it is registered for the specified (fully-qualified) *typenames*. If a callback was already registered for the given *typenames*, the existing callback is removed before the new callback is added.
 
-The specified *typenames* is a string, such as `start` or `end.foo`. The type may be optionally followed by a period (`.`) and a name; the optional name allows multiple callbacks to be registered to receive events of the same type, such as `start.foo` and `start.bar`. To specify multiple typenames, separate typenames with spaces, such as `start end` or `start.foo start.bar`.
+The specified *typenames* is a string, such as `start` or `end.foo`. The type may be optionally followed by a period (`.`) and a name; the optional name allows multiple callbacks to be registered to receive events of the same type, such as `start.foo` and `start.bar`. ~~To specify multiple typenames, separate typenames with spaces, such as `start end` or `start.foo start.bar`.~~
 
 To remove all callbacks for a given name `foo`, say `dispatch.on(".foo", null)`.
 
-If *callback* is not specified, returns the current callback for the specified *typenames*, if any. If multiple typenames are specified, the first matching callback is returned.
+If *callback* is not specified, returns the current callback for the specified *typenames*, if any. ~~If multiple typenames are specified, the first matching callback is returned.~~
 
 <a name="dispatch_copy" href="#dispatch_copy">#</a> *dispatch*.<b>copy</b>() [<>](https://github.com/d3/d3-dispatch/blob/master/src/dispatch.js#L49 "Source")
 
