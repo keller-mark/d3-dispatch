@@ -13,9 +13,9 @@
     "name": "Mike Bostock",
     "url": "http://bost.ocks.org/mike"
   },
-  "main": "dist/d3-dispatch.js",
-  "unpkg": "dist/d3-dispatch.min.js",
-  "jsdelivr": "dist/d3-dispatch.min.js",
+  "main": "dist/d3-dispatch-nosplit.js",
+  "unpkg": "dist/d3-dispatch-nosplit.min.js",
+  "jsdelivr": "dist/d3-dispatch-nosplit.min.js",
   "module": "src/index.js",
   "repository": {
     "type": "git",
