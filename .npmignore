@@ -1,0 +1,8 @@
+.DS_Store
+.eslintrc.json
+.travis.yml
+*.sublime-project
+rollup.config.js
+test/
+
+

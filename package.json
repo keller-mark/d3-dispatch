@@ -1,5 +1,5 @@
 {
-  "name": "d3-dispatch",
+  "name": "d3-dispatch-nosplit",
   "version": "1.0.5",
   "description": "Register named callbacks and call them with arguments.",
   "keywords": [
@@ -9,19 +9,14 @@
     "listener",
     "dispatch"
   ],
-  "homepage": "https://d3js.org/d3-dispatch/",
   "license": "BSD-3-Clause",
-  "author": {
-    "name": "Mike Bostock",
-    "url": "http://bost.ocks.org/mike"
-  },
   "main": "dist/d3-dispatch.js",
   "unpkg": "dist/d3-dispatch.min.js",
   "jsdelivr": "dist/d3-dispatch.min.js",
   "module": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/d3/d3-dispatch.git"
+    "url": "https://github.com/keller-mark/d3-dispatch-nosplit.git"
   },
   "files": [
     "dist/**/*.js",
