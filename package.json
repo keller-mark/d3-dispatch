@@ -9,7 +9,10 @@
     "listener",
     "dispatch"
   ],
-  "license": "BSD-3-Clause",
+  "license": "BSD-3-Clause","author": {
+    "name": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike"
+  },
   "main": "dist/d3-dispatch.js",
   "unpkg": "dist/d3-dispatch.min.js",
   "jsdelivr": "dist/d3-dispatch.min.js",
